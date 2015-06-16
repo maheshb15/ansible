@@ -1,0 +1,13 @@
+- hosts: DFW2-WEBAPPS
+  user: nraju
+  sudo: yes
+  vars:
+    # crypted passwords, generated on a Linux box using: 
+    # echo 'import crypt,getpass; print crypt.crypt(getpass.getpass(), "$6$YOURSALT")' | python -
+  - user_password: '$6$rounds=100000$DqQfozF4lIvfYnRp$SItweO7CqJYQLIZe8V783n5sOgh.p7LPFCn.xP44Rua84K6/aaRKKvDQ1vl9n9CAXQNOBvIOWwd5rGj8KYKOi1'
+  - deploy_password: ''
+ 
+ 
+  tasks:
+  - name: Change user password
+    action: user name=maheshb password=$user_password
